@@ -20,7 +20,7 @@ namespace UserAuth.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("UserAuthDBContextConnection")));
 
-                services.AddDefaultIdentity<MinervaUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<MinervaUser>(options => options.SignIn.RequireConfirmedAccount = false)//turn to true once email validation is setup. 
                     .AddEntityFrameworkStores<UserAuthDBContext>();
             });
         }
