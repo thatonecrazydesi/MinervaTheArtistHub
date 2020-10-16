@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAuth", "UserAuth.csproj", "{B19AC74D-4C90-4503-ADC0-3F56D06EE83C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserAuth", "UserAuth.csproj", "{B19AC74D-4C90-4503-ADC0-3F56D06EE83C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5CAD4C9E-2044-4D85-AA28-95754A9F1F9B} = {5CAD4C9E-2044-4D85-AA28-95754A9F1F9B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoGalleryAPI", "..\PhotoGalleryAPI\PhotoGalleryAPI.csproj", "{5CAD4C9E-2044-4D85-AA28-95754A9F1F9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinervaDTO", "..\MinervaDTO\MinervaDTO.csproj", "{B8DAA11E-203D-4074-B276-D7E744B44CF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,14 @@ Global
 		{B19AC74D-4C90-4503-ADC0-3F56D06EE83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19AC74D-4C90-4503-ADC0-3F56D06EE83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19AC74D-4C90-4503-ADC0-3F56D06EE83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CAD4C9E-2044-4D85-AA28-95754A9F1F9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CAD4C9E-2044-4D85-AA28-95754A9F1F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CAD4C9E-2044-4D85-AA28-95754A9F1F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CAD4C9E-2044-4D85-AA28-95754A9F1F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8DAA11E-203D-4074-B276-D7E744B44CF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DAA11E-203D-4074-B276-D7E744B44CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DAA11E-203D-4074-B276-D7E744B44CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DAA11E-203D-4074-B276-D7E744B44CF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
