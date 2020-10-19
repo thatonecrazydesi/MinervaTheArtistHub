@@ -5,9 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UserAuth.Data;
+using UserAuth.Hubs;
 
 namespace UserAuth
 {
@@ -25,6 +28,10 @@ namespace UserAuth
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSignalR();
+            //services.AddDbContext<UserAuthDBContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("UserAuthDBContextConnection")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +54,10 @@ namespace UserAuth
             app.UseRouting();
             app.UseAuthentication();//UserAuth
             app.UseAuthorization();
+            app.UseSignalR(route =>
+            {
+                route.MapHub<ChatHub>("/Home/Index");
+            });
 
             app.UseEndpoints(endpoints =>
             {

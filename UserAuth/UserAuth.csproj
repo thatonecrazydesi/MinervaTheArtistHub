@@ -7,8 +7,19 @@
   <ItemGroup>
     <Compile Remove="Migrations\20201015022059_initial.cs" />
     <Compile Remove="Migrations\20201015022059_initial.Designer.cs" />
+    <Compile Remove="Migrations\20201015022547_initial.cs" />
+    <Compile Remove="Migrations\20201015022547_initial.Designer.cs" />
     <Compile Remove="Migrations\20201016000613_PhotGalleryAPI.cs" />
     <Compile Remove="Migrations\20201016000613_PhotGalleryAPI.Designer.cs" />
+    <Compile Remove="Migrations\20201019064648_updateM.cs" />
+    <Compile Remove="Migrations\20201019064648_updateM.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\signalr\signalr.js" />
+    <None Include="wwwroot\signalr\signalr.js.map" />
+    <None Include="wwwroot\signalr\signalr.min.js" />
+    <None Include="wwwroot\signalr\signalr.min.js.map" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,11 +31,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MinervaDTO\MinervaDTO.csproj" />
-    <ProjectReference Include="..\PhotoGalleryAPI\PhotoGalleryAPI.csproj" />
   </ItemGroup>
 
 </Project>

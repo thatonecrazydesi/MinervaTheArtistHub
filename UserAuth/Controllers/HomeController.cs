@@ -4,8 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using UserAuth.Areas.Identity.Data;
+using UserAuth.Data;
 using UserAuth.Models;
 
 namespace UserAuth.Controllers
@@ -13,18 +17,37 @@ namespace UserAuth.Controllers
     [Authorize]// This controller is only accessible when the user is authenicated.
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        //private readonly ILogger<HomeController> _logger;
+        public readonly UserAuthDBContext _context;
+        public readonly UserManager<MinervaUser> _userManager;
+        public HomeController(UserAuthDBContext context, UserManager<MinervaUser> userManager)
         {
-            _logger = logger;
+            _context = context;
+            //_logger = logger;
+            _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var currentUser = await _userManager.GetUserAsync(User);
+            ViewBag.CurrentUserName = currentUser.UserName;
+            var messages = await _context.Messages.ToListAsync();
+            return View(messages);
         }
 
+        public async Task<IActionResult> Create(Message message)
+        {
+            if (ModelState.IsValid)
+            {
+                message.UserName = User.Identity.Name;
+                var sender = await _userManager.GetUserAsync(User);
+                message.UserId = sender.Id;
+                await _context.Messages.AddAsync(message);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            return Error();
+        }
         public IActionResult Privacy()
         {
             return View();

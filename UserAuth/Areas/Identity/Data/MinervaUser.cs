@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using UserAuth.Models;
 
 namespace UserAuth.Areas.Identity.Data
 {
@@ -32,16 +33,19 @@ namespace UserAuth.Areas.Identity.Data
         [Column(TypeName = "varchar(40)")]
         public string LocationCity { get; set; }
 
-        //[Required]
-        //[PersonalData]
-        //[Column(TypeName = "nvarchar(40)")]
-        //public string Username { get; set; }
+        
+        // 1 to many Messages
+        public virtual ICollection<Message> Messages { get; set; }
+        
+       public MinervaUser()
+            {
+                Messages = new HashSet<Message>();
+            }
+        //1 to many forums
 
+        //1 to many pictures
 
-        //[Required]
-        //[PersonalData]
-        //[Column(TypeName = "nvarchar(15)")]
-        //public string Password { get; set; }
+        
 
 
 
