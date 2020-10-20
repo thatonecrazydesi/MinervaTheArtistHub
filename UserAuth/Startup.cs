@@ -56,7 +56,7 @@ namespace UserAuth
             app.UseAuthorization();
             app.UseSignalR(route =>
             {
-                route.MapHub<ChatHub>("/Home/Index");
+                route.MapHub<ChatHub>("/Home/Chatroom");
             });
 
             app.UseEndpoints(endpoints =>

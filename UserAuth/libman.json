@@ -5,6 +5,14 @@
     {
       "library": "signalr.js@2.4.1",
       "destination": "wwwroot/signalr.js/"
+    },
+    {
+      "library": "font-awesome@5.15.1",
+      "destination": "wwwroot/font-awesome/"
+    },
+    {
+      "library": "font-awesome-animation@0.3.0",
+      "destination": "wwwroot/font-awesome-animation/"
     }
   ]
 }

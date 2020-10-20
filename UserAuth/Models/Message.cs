@@ -20,5 +20,10 @@ namespace UserAuth.Models
 
         public string UserId { get; set; }
         public virtual MinervaUser MinervaUser { get; set; }
+
+        public Message()
+        {
+            Timestamp = DateTime.Now;
+        }
     }
 }

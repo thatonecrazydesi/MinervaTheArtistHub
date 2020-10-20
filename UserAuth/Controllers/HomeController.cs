@@ -27,10 +27,21 @@ namespace UserAuth.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        //Add Action for INDEX Page
+        //Add Action for FORUM Page
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Chatroom()
         {
             var currentUser = await _userManager.GetUserAsync(User);
-            ViewBag.CurrentUserName = currentUser.UserName;
+            if(User.Identity.IsAuthenticated)
+            {
+                ViewBag.CurrentUserName = currentUser.UserName;
+            }
+            
             var messages = await _context.Messages.ToListAsync();
             return View(messages);
         }

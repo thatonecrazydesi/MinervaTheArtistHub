@@ -1,0 +1,209 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    font-family: 'Commissioner', sans-serif;
+    overflow-x: hidden;
+    
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+ul, li{
+    list-style: none;
+}
+
+ a{
+     text-decoration:none;
+ }
+
+ header{
+     display:flex;
+     justify-content: space-between;
+     align-items:center;
+     background: #ffffff;
+     box-shadow: 0 0 4px rgba(0,0,0,.15), 0 4px 5px rgba(0,0,0,.3);
+     height: 69px;
+     z-index: 10;
+     position: relative;
+     top: 0;
+     left: 0;
+ }
+ header .logo {
+     padding:15px 25px;
+     
+ }
+    header .logo h1 {
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: 'Commissioner', sans-serif;
+        color: #353535;
+    }
+    header .nav{
+        position: relative;
+        border-left: 1px solid #e5e5e5;
+       
+       
+    }
+    header .nav ul{
+        display: flex;
+        justify-content: space-between;
+    }
+    header .nav ul li{
+        padding: 26px 20px 24px 20px;
+        transition: all .4s ease;
+        cursor:pointer;
+    }
+    header .nav ul li h3 {
+        font-family: 'Commissioner', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 1em;
+    }
+    header .nav ul li.active,
+    header .nav ul li:hover {
+        box-shadow: 0 -4px 0px inset;
+        background-color: #353535;
+        box-shadow:#14c60c 0 -4px 0px  inset;
+        color: #fff;
+    }
+    .bars{
+        margin-right: 20px;
+        color: #797979;
+        cursor: pointer;
+        font-size: 1.6em;
+    }
+    aside {
+        position: relative;
+        top: 4px;
+        box-shadow: 0 0 4px rgba(0,0,0,.15), 0 4px 5px rgba(0,0,0,.3);
+        width: 270px;
+        height: 100%;
+        z-index: 10;
+        float: left;
+        background: #fff;
+        font-family: 'Commissioner', sans-serif;
+        overflow: auto;
+    }
+    aside .user-side {
+        padding: 20px;
+        border-top: 1px solid #e5e5e5;
+    }
+    aside .user-pic{
+        float: left;
+        width: 70px;
+        height:70px;
+        padding:2px;
+        border-radius: 12px;
+        margin-right: 10px;
+        overflow: hidden;
+    }
+    aside .user-pic img{
+        width:100%;
+        height:100%;
+    }
+    aside .user-info {
+        display: flex;
+        flex-direction: column;
+        color: #353535;
+    }
+    aside .Username{
+        margin-bottom: 4px;
+        font-size:1.3em;
+        text-transform:uppercase;
+        font-weight:800
+    }
+    aside .editprofile, aside .logout
+    {
+        font-family: 'Commissioner', sans-serif;
+        font-size: 14px; 
+    }
+   
+    .search {
+        margin-top: 30px;
+        margin-left: 15px;
+        display: block;
+    }
+    .search input {
+        font-size: 1em;
+        line-height: 2;
+           
+        border: 1px solid rgba(0,0,0,.3);
+        border-radius: 2px 0 0 2px;
+        font-family: 'Commissioner', sans-serif;
+        font-weight: 200;
+    }
+    .search button {
+        padding: 6px 7px;
+        font-size: 1rem;
+        border-radius: 0 2px 2px 0;
+        border: 1px #353535;
+        background: #353535;
+        color: #fff;
+        cursor: pointer;
+        border-left: 0;
+    }

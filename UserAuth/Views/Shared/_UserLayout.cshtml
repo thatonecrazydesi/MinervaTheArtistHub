@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - User Profile Page</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/user.css" />
+    <link rel="stylesheet" href="~/font-awesome/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Commissioner&display=swap" rel="stylesheet">  @*GoogleFont Commissioner*@
+</head>
+<body>
+    
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <h1>Minerva</h1>
+                </div>
+                <div class="bars">
+                    <span> <i class=" fa fa-bars"></i></span>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            <h3>Settings</h3>@*Sends user to manage profile page*@
+                        </li>
+                        <li>
+                            <h3>Marketplace</h3>@*Sends user to marketplace*@
+                        </li>
+                        <li>
+                            <h3>Chatroom</h3>@*Sends user to chatrooms*@
+                        </li>
+                        <li>
+                            <h3>Forum</h3>@*Sends user to forum*@
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            
+        </div>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

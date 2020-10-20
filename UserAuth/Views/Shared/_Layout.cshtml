@@ -3,22 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - UserAuth</title>
+    <title>@ViewData["Title"] Minerva: The Artist Hub</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    
+    <link rel="stylesheet" href="~/css/user.css" />
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Commissioner&display=swap" rel="stylesheet">  @*GoogleFont Commissioner*@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">UserAuth</a>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                  <partial name="_LoginPartial.cshtml" />@*This will login/register page to the top *@ 
-                </div>
-            </div>
-        </nav>
+        <div class="logo">
+            
+                <h1>Minerva <a asp-area="" asp-controller="Home" asp-action="Index"></a></h1>    
+           
+        </div>
+        <div class="bars">
+            <span> <i class=" fa fa-bars"></i></span>
+        </div>
+        
+        <div class="nav">
+            <partial name="_UserNavigation.cshtml"/>@*This will only show user navigation options once the user is authenticated*@
+        </div>
     </header>
+        
+    <div class="nav-mobile">
+            <partial name="_LoginPartial.cshtml" />
+            @*This will show Username and logout option *@
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -27,7 +38,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - UserAuth - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Minerva - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

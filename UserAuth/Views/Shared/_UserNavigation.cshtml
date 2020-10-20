@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using UserAuth.Areas.Identity.Data
+
+@inject SignInManager<MinervaUser> SignInManager
+@inject UserManager<MinervaUser> UserManager
+
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+<div class="search">
+   
+        <form>
+            <input type="text" placeholder="Search Minerva..." />
+            <button type="submit"><span><i class="fa fa-search"></i></span></button>
+        </form>
+   
+    
+</div> 
+<ul>
+    
+    <li class="active">
+        <span><i class="fa fa-home"></i></span>@*USER homepage*@
+    </li>
+    <li>
+        <span><i class="fa fa-paint-brush"></i></span>@*Marketplace*@
+
+    </li>
+    <li>
+        <span><i class="fa fa-comment"></i></span>@*Chatroom*@
+    </li>
+    <li>
+        <span><i class="fa fa-pencil-square"></i></span>@*Forum*@
+    </li>
+</ul>
+}
