@@ -18,14 +18,14 @@
             <img width="100" src="~/img/undraw_profile_pic_ic5t.svg" alt="" />@*This is be replaced with the user's profile pic*@
         </div>
         <div class="user-info">
-            <span class="Username"><a id="profile" class="nav-link text-dark" asp-area="Home" asp-page="/Index" title="Profile">@UserManager.GetUserName(User)</a> </span>
+            <span class="Username"><a id="profile" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@UserManager.GetUserName(User)</a> </span>@*Doesn't work...*@
             <span class="editprofile"><a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Edit Profile</a></span>
         </div>
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
             <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
         </form>
     </div>
-    <div class="personal-nav">
+    <div class="personal-nav">@*These will be ViewBags of User's posts, User's events,User's Gallery and Reviews of User's photos*@
         <h2>General</h2>
         <nav>
             <ul>
@@ -40,6 +40,10 @@
                 <li onclick="show(2)">
                     <span><i class="fa fa-calendar"></i></span>
                     <h3>Events</h3>
+                </li>
+                <li onclick="show(3)">
+                    <span><i class="fa fa-paint-brush"></i></span>
+                    <h3>Gallery</h3>
                 </li>
             </ul>
         </nav>

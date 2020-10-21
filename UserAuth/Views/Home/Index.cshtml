@@ -1,41 +1,51 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-    
+﻿@using Microsoft.AspNetCore.Identity
+@using UserAuth.Areas.Identity.Data
+
+@inject SignInManager<MinervaUser> SignInManager
+@inject UserManager<MinervaUser> UserManager
+
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+
+    @*Create USER PROFILE HTML PAGE*@
+
+    <div class="main">
+        <section class="profileTab">
+            <h1>Portfolio</h1>
+            <div class="stats">
+                <div class="photos">
+                    <div class="newphoto">
+                        <span><i class="fa fa-plus"></i></span>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        <h2>12</h2>
+                        <h3>Posts</h3>
+                    </li>
+                    <li>
+                        <h2>13</h2>
+                        <h3>Views</h3>
+                    </li>
+                    <li>
+                        <h2>100</h2>
+                        <h3>Images</h3>
+                    </li>
+                    <li>
+                        <h2>0</h2>
+                        <h3>Upcoming Events</h3>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="views">
+            <h2>VIEW BAG AREA</h2>
+        </div>
+        @*VIEWBAGS*@
+       
+    </div>
 }
-
-
-@*Create USER PROFILE HTML PAGE*@
-<div class="Background">
-    @* *@
-</div>
-<div class="main">
-   <section class="profileTab">
-       <h1>Portfolio</h1>
-           <div class="stats">
-               <ul>
-                   <li>
-                       <h2>12</h2>
-                       <h3>Posts</h3>
-                   </li>
-                   <li>
-                       <h2>13</h2>
-                       <h3>Views</h3>
-                   </li>
-                   <li>
-                       <h2>100</h2>
-                       <h3>Images</h3>
-                   </li>
-                   <li>
-                       <h2>0</h2>
-                       <h3>Upcoming Events</h3>
-                   </li>
-               </ul>
-           </div>
-           <div class="photos">
-               <div class="newphoto">
-                   <span><i class="fa fa-plus"></i></span>
-               </div>
-           </div>
-   </section>
-    @*Add table for photo gallery!*@
-</div>

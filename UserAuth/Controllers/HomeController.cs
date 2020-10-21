@@ -34,6 +34,19 @@ namespace UserAuth.Controllers
         {
             return View();
         }
+        public IActionResult MarketPlace()
+        {
+            return View();
+        }
+        public IActionResult Forum()
+        {
+            return View();
+        }
+        public IActionResult Events()
+        {
+            return View();
+        }
+        
         public async Task<IActionResult> Chatroom()
         {
             var currentUser = await _userManager.GetUserAsync(User);
