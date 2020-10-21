@@ -8,9 +8,7 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
+
 
 .btn-primary {
   color: #fff;
@@ -96,114 +94,200 @@ ul, li{
      padding:15px 25px;
      
  }
-    header .logo h1 {
-        cursor: pointer;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-family: 'Commissioner', sans-serif;
-        color: #353535;
-    }
-    header .nav{
-        position: relative;
-        border-left: 1px solid #e5e5e5;
+header .logo h1 {
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Commissioner', sans-serif;
+    color: #353535;
+}
+header .nav{
+    position: relative;
+    border-left: 3px solid #e5e5e5;
        
        
-    }
-    header .nav ul{
-        display: flex;
-        justify-content: space-between;
-    }
-    header .nav ul li{
-        padding: 26px 20px 24px 20px;
-        transition: all .4s ease;
-        cursor:pointer;
-    }
-    header .nav ul li h3 {
-        font-family: 'Commissioner', sans-serif;
-        font-weight: 500;
-        text-transform: uppercase;
-        font-size: 1em;
-    }
-    header .nav ul li.active,
-    header .nav ul li:hover {
-        box-shadow: 0 -4px 0px inset;
-        background-color: #353535;
-        box-shadow:#14c60c 0 -4px 0px  inset;
-        color: #fff;
-    }
-    .bars{
-        margin-right: 20px;
-        color: #797979;
-        cursor: pointer;
-        font-size: 1.6em;
-    }
-    aside {
-        position: relative;
-        top: 4px;
-        box-shadow: 0 0 4px rgba(0,0,0,.15), 0 4px 5px rgba(0,0,0,.3);
-        width: 270px;
-        height: 100%;
-        z-index: 10;
-        float: left;
-        background: #fff;
-        font-family: 'Commissioner', sans-serif;
-        overflow: auto;
-    }
-    aside .user-side {
-        padding: 20px;
-        border-top: 1px solid #e5e5e5;
-    }
-    aside .user-pic{
-        float: left;
-        width: 70px;
-        height:70px;
-        padding:2px;
-        border-radius: 12px;
-        margin-right: 10px;
-        overflow: hidden;
-    }
-    aside .user-pic img{
-        width:100%;
-        height:100%;
-    }
-    aside .user-info {
-        display: flex;
-        flex-direction: column;
-        color: #353535;
-    }
-    aside .Username{
-        margin-bottom: 4px;
-        font-size:1.3em;
-        text-transform:uppercase;
-        font-weight:800
-    }
-    aside .editprofile, aside .logout
-    {
-        font-family: 'Commissioner', sans-serif;
-        font-size: 14px; 
-    }
+}
+header .nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+header .nav ul li{
+    padding: 26px 20px 24px 20px;
+    transition: all .4s ease;
+    cursor:pointer;
+}
+header .nav ul li h3 {
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+header .nav ul li.active,
+header .nav ul li:hover {
+    box-shadow: 0 -4px 0px inset;
+    background-color: #353535;
+    box-shadow:#14c60c 0 -4px 0px  inset;
+    color: #fff;
+}
+.bars{
+    margin-right: 20px;
+    color: #797979;
+    cursor: pointer;
+    font-size: 1.6em;
+}
+aside {
+    
+    position: relative;
+    top: 4px;
+    box-shadow: 0 0 4px rgba(0,0,0,.15), 0 4px 5px rgba(0,0,0,.3);
+    width: 270px;
+    height: 100%;
+    z-index: 10;
+    float: left;
+    background: #fff;
+    font-family: 'Commissioner', sans-serif;
+    overflow: auto;
+}
+aside .user-square{
+    padding: 20px;
+    border-bottom: 3px solid #e5e5e5;
+}
+aside .user-pic{
+    float: left;
+    width: 70px;
+    height:70px;
+    padding:2px;
+    border-radius: 12px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+aside .user-pic img{
+    width:100%;
+    height:100%;
+}
+aside .user-info{
+    display: flex;
+    flex-direction: column;
+    color: #353535;
+}
+aside .Username{
+    margin-bottom: 4px;
+    font-size:35px;
+    text-transform:uppercase;
+    font-weight:800
+}
+aside .editprofile{
+    font-family: 'Commissioner', sans-serif;
+    font-size: 20px;
+}
+    
    
-    .search {
-        margin-top: 30px;
-        margin-left: 15px;
-        display: block;
-    }
-    .search input {
-        font-size: 1em;
-        line-height: 2;
-           
-        border: 1px solid rgba(0,0,0,.3);
-        border-radius: 2px 0 0 2px;
-        font-family: 'Commissioner', sans-serif;
-        font-weight: 200;
-    }
-    .search button {
-        padding: 6px 7px;
-        font-size: 1rem;
-        border-radius: 0 2px 2px 0;
-        border: 1px #353535;
-        background: #353535;
+.search{
+    margin-top: 30px;
+    margin-left: 15px;
+    display: inline-block;
+}
+.search input{
+    font-size: 1em;
+    line-height: 2;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 2px 0 0 2px;
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 200;
+}
+.search button{
+    padding: 6px 7px;
+    font-size: 1rem;
+    border-radius: 0 2px 2px 0;
+    border: 1px #353535;
+    background: #353535;
+    color: #fff;
+    cursor: pointer;
+    border-left: 0;
+}
+.personal-nav h2 {
+    font-weight: 500;
+    padding: 8px 0px 8px 20px;
+    color: #353535;
+}
+.personal-nav ul li{
+    display: flex;
+    position:relative;
+    width: 100%;
+    padding: 8px 0px 8px 20px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+ .personal-nav ul li.active,
+   .personal-nav ul li:hover{
+        background:#a3a1a1;
         color: #fff;
-        cursor: pointer;
-        border-left: 0;
+    }
+.personal-nav span {
+    margin-right: 10px;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    font-weight: 200;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    background: #14c60c;
+    color: #fff;
+}
+
+.main section h1 {
+    width: 100%;
+    height: 100%;
+    font-family: 'Commissioner', sans-serif;
+    font-weight:900;
+    text-transform: uppercase;
+    text-align: center;
+    color: #353535;
+}
+
+.photos  {
+    padding: 20px;
+    margin-top:50px;
+    background: #353535;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    
+}
+.photos .newphoto {
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    background: #14c60c;
+    border-radius: 50%;
+    line-height: 70px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+.stats ul li {
+    display: inline-block;
+    align-content: center;
+    padding: 20px;
+}
+.stats {
+    padding:20px;
+    border-bottom: 3px solid #e5e5e5;
+    text-align: center;
+}
+    .stats ul li h2 {
+        font-weight: 100;
+        font-family: 'Commissioner', sans-serif;
+        color: #808080;
+    }
+
+    .stats ul li h3 {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Commissioner', sans-serif;
+        color: #353535;
     }
