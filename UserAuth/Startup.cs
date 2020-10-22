@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UserAuth.Data;
 using UserAuth.Hubs;
+using UserAuth.IServices;
+using UserAuth.Services;
 
 namespace UserAuth
 {
@@ -26,11 +29,20 @@ namespace UserAuth
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Testing to see if this works
+            //services.AddDbContext<IdentityDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("UserAuthDBContextConnection")));
             services.AddControllersWithViews();
+            services.AddScoped<IUserServices, UserServices>();
+            services.AddControllersWithViews()
+                .AddJsonOptions(o =>
+                {
+                    o.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    o.JsonSerializerOptions.PropertyNamingPolicy = null;
+                });
             services.AddRazorPages();
             services.AddSignalR();
-            //services.AddDbContext<UserAuthDBContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("UserAuthDBContextConnection")));
+            
 
         }
 

@@ -10,8 +10,8 @@ using UserAuth.Data;
 namespace UserAuth.Migrations
 {
     [DbContext(typeof(UserAuthDBContext))]
-    [Migration("20201019075256_Messages")]
-    partial class Messages
+    [Migration("20201022025656_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -213,6 +213,9 @@ namespace UserAuth.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<byte[]>("ProfileImage")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");

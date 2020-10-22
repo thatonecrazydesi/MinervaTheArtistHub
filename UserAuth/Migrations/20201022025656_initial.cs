@@ -43,7 +43,8 @@ namespace UserAuth.Migrations
                     FName = table.Column<string>(type: "varchar(20)", nullable: false),
                     LName = table.Column<string>(type: "varchar(20)", nullable: false),
                     LocationState = table.Column<string>(type: "varchar(20)", nullable: false),
-                    LocationCity = table.Column<string>(type: "varchar(40)", nullable: false)
+                    LocationCity = table.Column<string>(type: "varchar(40)", nullable: false),
+                    ProfileImage = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -157,7 +158,7 @@ namespace UserAuth.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Message",
+                name: "Messages",
                 columns: table => new
                 {
                     ChatID = table.Column<int>(nullable: false)
@@ -169,9 +170,9 @@ namespace UserAuth.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Message", x => x.ChatID);
+                    table.PrimaryKey("PK_Messages", x => x.ChatID);
                     table.ForeignKey(
-                        name: "FK_Message_AspNetUsers_UserId",
+                        name: "FK_Messages_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -218,8 +219,8 @@ namespace UserAuth.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Message_UserId",
-                table: "Message",
+                name: "IX_Messages_UserId",
+                table: "Messages",
                 column: "UserId");
         }
 
@@ -241,7 +242,7 @@ namespace UserAuth.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Message");
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

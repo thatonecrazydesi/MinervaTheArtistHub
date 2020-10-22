@@ -33,6 +33,8 @@ namespace UserAuth.Areas.Identity.Data
         [Column(TypeName = "varchar(40)")]
         public string LocationCity { get; set; }
 
+        public byte[] ProfileImage { get; set; }
+
         
         // 1 to many Messages
         public virtual ICollection<Message> Messages { get; set; }
