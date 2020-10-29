@@ -10,7 +10,7 @@ namespace UserAuth.Hubs
 {
     public class ChatHub:Hub
     {
-        public async Task SendMessage(Message message) =>
+        public async Task SendMessage(ChatRoom message) =>
             await Clients.All.SendAsync("recieveMessage", message);
     }
 }

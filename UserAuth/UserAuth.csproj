@@ -52,6 +52,11 @@
     <None Include="wwwroot\fonts\font-awesome-4.7.0\scss\_variables.scss" />
     <None Include="wwwroot\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
     <None Include="wwwroot\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <None Include="wwwroot\lib\jquery\jquery\dist\jquery-unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\lib\jquery\jquery\dist\jquery.unobtrusive-ajax.min.js" />
     <None Include="wwwroot\signalr\signalr.js" />
     <None Include="wwwroot\signalr\signalr.js.map" />
     <None Include="wwwroot\signalr\signalr.min.js" />

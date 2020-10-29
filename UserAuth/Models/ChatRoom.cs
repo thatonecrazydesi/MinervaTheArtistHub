@@ -7,7 +7,7 @@ using UserAuth.Areas.Identity.Data;
 
 namespace UserAuth.Models
 {
-    public class Message
+    public class ChatRoom
     {
         [Key]
         public int ChatID { get; set; }
@@ -21,7 +21,7 @@ namespace UserAuth.Models
         public string UserId { get; set; }
         public virtual MinervaUser MinervaUser { get; set; }
 
-        public Message()
+        public ChatRoom()
         {
             Timestamp = DateTime.Now;
         }

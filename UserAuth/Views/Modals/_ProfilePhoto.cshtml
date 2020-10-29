@@ -1,0 +1,43 @@
+﻿@model UserAuth.Areas.Identity.Data.MinervaUser
+@using Microsoft.AspNetCore.Identity
+@using UserAuth.Areas.Identity.Data
+
+@inject SignInManager<MinervaUser> SignInManager
+@inject UserManager<MinervaUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+
+{
+
+    @*This modal will allow the user to change Profile picture*@
+    @*User must be authenticated and profile pic needs to be inserted into user database entry by id*@
+    <div class="modal fade" id="addUserProfilePic">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="addUserProfilePicLabel">Profile Picture</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form action="Edit">
+                        <div class="form-group">
+                            <label asp-for="ProfileImage"></label>
+                            <input asp-for="ProfileImage" class="form-control" />
+                            <span asp-validation-for="ProfileImage" class="text-danger"></span>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-Save="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

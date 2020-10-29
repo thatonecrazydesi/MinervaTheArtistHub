@@ -1,12 +1,36 @@
-﻿@*
-    CHATROOM UI PAGE
-*@
-@{
-    ViewData["Title"] = "Chat Room";
+﻿@using Microsoft.AspNetCore.Identity
+@using UserAuth.Areas.Identity.Data
+@using UserAuth.Models
+
+@inject SignInManager<MinervaUser> SignInManager
+@inject UserManager<MinervaUser> UserManager
+@* Black and greeen layout. the users will be in black and  the chat will be in white with  green outlined *@
+
+<link rel="stylesheet" href="~/css/chatroom.css" />
+
+@if (SignInManager.IsSignedIn(User))
+{
+<div class="chatcontainer">
+    <div id="conversation-list">
+
+    </div>
+    <div id="new-message-container">
+
+    </div>
+</div>
+
+
+
 
 }
+@section scripts {
+    <script src="~/signalr/signalr.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.min.js"></script>
+    @*Add this to the js file directory*@
+    <script src="~/js/ChatRoom.js"></script>
+    <script src="~/js/signalrReqHandler.js"></script>
+}
 
-<div class="Title">
-    <h1>Chatroom</h1>
-</div>
+
+
 
