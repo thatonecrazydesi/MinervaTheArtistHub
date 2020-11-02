@@ -37,17 +37,18 @@ namespace UserAuth.Areas.Identity.Data
 
         
         // 1 to many Messages
-        public virtual ICollection<ChatRoom> Messages { get; set; }
+       public virtual ICollection<ChatRoom> Messages { get; set; }
         
        public MinervaUser()
             {
                 Messages = new HashSet<ChatRoom>();
             }
         //1 to many forums
+       // public virtual ICollection<ForumPosts> Posts { get; set; }
 
         //1 to many pictures
+        public virtual ICollection<Photos> PhotoGallery { get; set; }
 
-        
 
 
 

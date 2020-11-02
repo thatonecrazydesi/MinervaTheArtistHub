@@ -68,7 +68,7 @@ namespace UserAuth
             app.UseAuthorization();
             app.UseSignalR(route =>
             {
-                route.MapHub<ChatHub>("/Home/Chatroom");
+                route.MapHub<ChatHub>("/Chatroom");
             });
 
             app.UseEndpoints(endpoints =>

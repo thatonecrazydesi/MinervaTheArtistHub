@@ -42,11 +42,11 @@ namespace UserAuth.Controllers
         {
             return View();
         }
-        public IActionResult MarketPlace()
+        public IActionResult MarketPlace()// Filter information to view events, and pictures
         {
             return View();
         }
-        public IActionResult Forum()
+        public IActionResult Forum()// public forums
         {
             return View();
         }
@@ -54,7 +54,31 @@ namespace UserAuth.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> Chatroom()
+        {
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.CurrentUserName = currentUser.UserName;
+            }
 
+            var messages = await _context.Messages.ToListAsync();
+            return View(messages);
+        }
+
+        public async Task<IActionResult> Create(ChatRoom message)
+        {
+            if (ModelState.IsValid)
+            {
+                message.UserName = User.Identity.Name;
+                var sender = await _userManager.GetUserAsync(User);
+                message.UserId = sender.Id;
+                await _context.Messages.AddAsync(message);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            return Error();
+        }
         public IActionResult Privacy()
         {
             return View();

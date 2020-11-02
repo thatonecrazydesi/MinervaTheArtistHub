@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using UserAuth.Areas.Identity.Data
-@using UserAuth.Models
+@model IEnumerable<UserAuth.Models.ChatRoom>
+@{ ViewData["Title"] = "ChatRoom";
+    var userName = User.Identity.Name;}
 
 @inject SignInManager<MinervaUser> SignInManager
 @inject UserManager<MinervaUser> UserManager
@@ -10,17 +12,61 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-<div class="chatcontainer">
-    <div id="conversation-list">
 
+    <div class="row">
+        <div class="col-md-12" id="chat">
+            @if (Model != null)
+            {
+                @foreach (var message in Model.OrderBy(m => m.Timestamp))
+                {
+                    string containerClass, timePosition, textAlign, contcolor, offset;
+                    if (userName == message.UserName)
+                    {
+                        containerClass = "container darker";
+                        timePosition = "time-right text-light";
+                        textAlign = "text-right text-white";
+                        contcolor = "bg-primary";
+                        offset = "col-md-6 offset-md-6";
+                    }
+                    else
+                    {
+                        containerClass = "container";
+                        timePosition = "time-left";
+                        textAlign = "text-left";
+                        contcolor = "bg-light";
+                        offset = "";
+                    }
+
+                    <div class="row">
+                        <div class="@offset">
+                            <div class="@containerClass @contcolor">
+
+                                <p class="sender @textAlign">@message.UserName</p>
+                                <p class="@textAlign">@message.Text</p>
+                                <span class="@timePosition">@message.Timestamp.ToString("M/dd/yyyy hh:MM tt")</span>
+                            </div>
+                        </div>
+                    </div>}}
+        </div>
+        <div class="col-md-12">
+            <form asp-action="Create"
+                  data-ajax-begin="clearInputField" data-ajax-complete=""
+                  data-ajax-failure="alert('Fail')" data-ajax-success="sendMessage"
+                  data-ajax="true" data-ajax-method="POST">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input name="Text" class="form-control" id="messageText" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Send" id="submitButton" class="btn btn-outline-primary btn-block" />
+                </div>
+                <input type="hidden" value="@userName" name="username" />
+            </form>
+        </div>
     </div>
-    <div id="new-message-container">
-
-    </div>
-</div>
-
-
-
+<script>
+    const userName = "@ViewBag.CurrentUserName";
+</script>
 
 }
 @section scripts {
@@ -28,7 +74,7 @@
     <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.min.js"></script>
     @*Add this to the js file directory*@
     <script src="~/js/ChatRoom.js"></script>
-    <script src="~/js/signalrReqHandler.js"></script>
+    <script src="~/js/SignalRHandler.js"></script>
 }
 
 

@@ -238,7 +238,7 @@ namespace UserAuth.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("UserAuth.Models.Message", b =>
+            modelBuilder.Entity("UserAuth.Models.ChatRoom", b =>
                 {
                     b.Property<int>("ChatID")
                         .ValueGeneratedOnAdd()
@@ -264,6 +264,42 @@ namespace UserAuth.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("UserAuth.Models.Photos", b =>
+                {
+                    b.Property<int>("PhotoID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Image")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("PhotoName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PhotoID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PhotoGallery");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -317,10 +353,17 @@ namespace UserAuth.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("UserAuth.Models.Message", b =>
+            modelBuilder.Entity("UserAuth.Models.ChatRoom", b =>
                 {
                     b.HasOne("UserAuth.Areas.Identity.Data.MinervaUser", "MinervaUser")
                         .WithMany("Messages")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("UserAuth.Models.Photos", b =>
+                {
+                    b.HasOne("UserAuth.Areas.Identity.Data.MinervaUser", "MinervaUser")
+                        .WithMany("PhotoGallery")
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

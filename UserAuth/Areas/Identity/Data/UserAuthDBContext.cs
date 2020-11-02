@@ -27,8 +27,14 @@ namespace UserAuth.Data
                 .HasOne<MinervaUser>(u => u.MinervaUser)
                 .WithMany(m => m.Messages)
                 .HasForeignKey(d => d.UserId);
-
+            builder.Entity<Photos>()
+                .HasOne<MinervaUser>(c => c.MinervaUser)
+                .WithMany(m => m.PhotoGallery)
+                .HasForeignKey(d => d.UserId);
         }
         public DbSet<ChatRoom> Messages { get; set; }
+        public DbSet<Photos> PhotoGallery { get; set; }
+
+       
     }
 }
