@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UserAuth.Areas.Identity.Data;
 using UserAuth.Data;
-using UserAuth.IServices;
+using UserAuth.Infrastructure;
 
 namespace UserAuth.Services
 {

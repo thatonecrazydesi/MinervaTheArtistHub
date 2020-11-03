@@ -6,13 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using UserAuth.Data;
 using UserAuth.Hubs;
-using UserAuth.IServices;
+using UserAuth.Infrastructure;
 using UserAuth.Services;
 
 namespace UserAuth
@@ -34,6 +36,9 @@ namespace UserAuth
             //options.UseSqlServer(Configuration.GetConnectionString("UserAuthDBContextConnection")));
             services.AddControllersWithViews();
             services.AddScoped<IUserServices, UserServices>();
+            
+
+
             services.AddControllersWithViews()
                 .AddJsonOptions(o =>
                 {
@@ -42,7 +47,9 @@ namespace UserAuth
                 });
             services.AddRazorPages();
             services.AddSignalR();
-            
+
+           
+           
 
         }
 

@@ -15,6 +15,7 @@ namespace UserAuth.Data
         public UserAuthDBContext(DbContextOptions<UserAuthDBContext> options)
             : base(options)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -27,14 +28,15 @@ namespace UserAuth.Data
                 .HasOne<MinervaUser>(u => u.MinervaUser)
                 .WithMany(m => m.Messages)
                 .HasForeignKey(d => d.UserId);
-            builder.Entity<Photos>()
-                .HasOne<MinervaUser>(c => c.MinervaUser)
-                .WithMany(m => m.PhotoGallery)
+            builder.Entity<Posts>()
+                .HasOne<MinervaUser>(u => u.MinervaUser)
+                .WithMany(m => m.BlogPosts)
                 .HasForeignKey(d => d.UserId);
+
         }
         public DbSet<ChatRoom> Messages { get; set; }
-        public DbSet<Photos> PhotoGallery { get; set; }
-
+        
+        public DbSet<Posts> BlogPosts { get; set; }
        
     }
 }

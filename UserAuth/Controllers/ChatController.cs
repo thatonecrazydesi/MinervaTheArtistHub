@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using UserAuth.Areas.Identity.Data;
 using UserAuth.Data;
 using UserAuth.Infrastructure;
@@ -17,8 +13,7 @@ using UserAuth.Models;
 
 namespace UserAuth.Controllers
 {
-    [Authorize]// This controller is only accessible when the user is authenicated.
-    public class HomeController : Controller
+    public class ChatController : Controller
     {
         //private readonly ILogger<HomeController> _logger;
         public readonly UserAuthDBContext _context;
@@ -27,7 +22,7 @@ namespace UserAuth.Controllers
 
 
 
-        public HomeController(UserAuthDBContext context, UserManager<MinervaUser> userManager, IUserServices userServices)
+        public ChatController(UserAuthDBContext context, UserManager<MinervaUser> userManager, IUserServices userServices)
         {
             _context = context;
             //_logger = logger;
@@ -35,24 +30,7 @@ namespace UserAuth.Controllers
             _userService = userServices;
         }
 
-        //Add Action for INDEX Page
-        //Add Action for FORUM Page
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult MarketPlace()// Filter information to view events, and pictures
-        {
-            return View();
-        }
-        
-        public IActionResult Events()
-        {
-            return View();
-        }
-
-        
         public async Task<IActionResult> Chatroom()
         {
             var currentUser = await _userManager.GetUserAsync(User);
@@ -90,3 +68,4 @@ namespace UserAuth.Controllers
         }
     }
 }
+

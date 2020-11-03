@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using UserAuth.Areas.Identity.Data;
 
-namespace UserAuth.IServices
+namespace UserAuth.Infrastructure
+
 {
     public interface IUserServices
     {

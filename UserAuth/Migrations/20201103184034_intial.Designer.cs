@@ -10,8 +10,8 @@ using UserAuth.Data;
 namespace UserAuth.Migrations
 {
     [DbContext(typeof(UserAuthDBContext))]
-    [Migration("20201022025656_initial")]
-    partial class initial
+    [Migration("20201103184034_intial")]
+    partial class intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -240,7 +240,7 @@ namespace UserAuth.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("UserAuth.Models.Message", b =>
+            modelBuilder.Entity("UserAuth.Models.ChatRoom", b =>
                 {
                     b.Property<int>("ChatID")
                         .ValueGeneratedOnAdd()
@@ -266,6 +266,38 @@ namespace UserAuth.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("UserAuth.Models.Posts", b =>
+                {
+                    b.Property<int>("PostId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BlogPosts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -319,10 +351,17 @@ namespace UserAuth.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("UserAuth.Models.Message", b =>
+            modelBuilder.Entity("UserAuth.Models.ChatRoom", b =>
                 {
                     b.HasOne("UserAuth.Areas.Identity.Data.MinervaUser", "MinervaUser")
                         .WithMany("Messages")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("UserAuth.Models.Posts", b =>
+                {
+                    b.HasOne("UserAuth.Areas.Identity.Data.MinervaUser", "MinervaUser")
+                        .WithMany("BlogPosts")
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

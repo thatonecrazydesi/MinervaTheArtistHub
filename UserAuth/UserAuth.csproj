@@ -12,21 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20201015022059_initial.cs" />
-    <Compile Remove="Migrations\20201015022059_initial.Designer.cs" />
-    <Compile Remove="Migrations\20201015022547_initial.cs" />
-    <Compile Remove="Migrations\20201015022547_initial.Designer.cs" />
-    <Compile Remove="Migrations\20201016000613_PhotGalleryAPI.cs" />
-    <Compile Remove="Migrations\20201016000613_PhotGalleryAPI.Designer.cs" />
-    <Compile Remove="Migrations\20201019064648_updateM.cs" />
-    <Compile Remove="Migrations\20201019064648_updateM.Designer.cs" />
-    <Compile Remove="Migrations\20201019064956_initial.cs" />
-    <Compile Remove="Migrations\20201019064956_initial.Designer.cs" />
-    <Compile Remove="Migrations\20201019075256_Messages.cs" />
-    <Compile Remove="Migrations\20201019075256_Messages.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Include="Views\Posts\Create.cshtml" />
+    <None Include="Views\Posts\Delete.cshtml" />
+    <None Include="Views\Posts\Details.cshtml" />
+    <None Include="Views\Posts\Edit.cshtml" />
+    <None Include="Views\Posts\Index.cshtml" />
     <None Include="wwwroot\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\fonts\font-awesome-4.7.0\less\animated.less" />
@@ -66,6 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />

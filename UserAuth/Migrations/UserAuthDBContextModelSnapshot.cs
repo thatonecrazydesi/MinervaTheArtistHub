@@ -266,40 +266,36 @@ namespace UserAuth.Migrations
                     b.ToTable("Messages");
                 });
 
-            modelBuilder.Entity("UserAuth.Models.Photos", b =>
+            modelBuilder.Entity("UserAuth.Models.Posts", b =>
                 {
-                    b.Property<int>("PhotoID")
+                    b.Property<int>("PostId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description")
-                        .IsRequired()
+                    b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("PhotoName")
-                        .IsRequired()
+                    b.Property<string>("PostDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Timestamp")
+                    b.Property<string>("PostName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TimeStamp")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PhotoID");
+                    b.HasKey("PostId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("PhotoGallery");
+                    b.ToTable("BlogPosts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -360,10 +356,10 @@ namespace UserAuth.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("UserAuth.Models.Photos", b =>
+            modelBuilder.Entity("UserAuth.Models.Posts", b =>
                 {
                     b.HasOne("UserAuth.Areas.Identity.Data.MinervaUser", "MinervaUser")
-                        .WithMany("PhotoGallery")
+                        .WithMany("BlogPosts")
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
