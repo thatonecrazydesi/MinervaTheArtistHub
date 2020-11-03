@@ -10,7 +10,7 @@ using UserAuth.Data;
 namespace UserAuth.Migrations
 {
     [DbContext(typeof(UserAuthDBContext))]
-    [Migration("20201103184034_intial")]
+    [Migration("20201103202354_intial")]
     partial class intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

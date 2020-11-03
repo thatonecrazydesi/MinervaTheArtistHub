@@ -2,7 +2,8 @@
 @using UserAuth.Areas.Identity.Data
 @model IEnumerable<UserAuth.Models.ChatRoom>
 @{ ViewData["Title"] = "ChatRoom";
-    var userName = User.Identity.Name;}
+    var userName = User.Identity.Name;
+    var userID = UserManager.GetUserId(User);}
 
 @inject SignInManager<MinervaUser> SignInManager
 @inject UserManager<MinervaUser> UserManager
@@ -61,6 +62,7 @@
                     <input type="submit" value="Send" id="submitButton" class="btn btn-outline-primary btn-block" />
                 </div>
                 <input type="hidden" value="@userName" name="username" />
+                <input type="hidden" value="@userID" name="userId" />
             </form>
         </div>
     </div>

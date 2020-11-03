@@ -12,6 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201103184034_intial.cs" />
+    <Compile Remove="Migrations\20201103184034_intial.Designer.cs" />
+    <Compile Remove="Migrations\20201103200927_update.cs" />
+    <Compile Remove="Migrations\20201103200927_update.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Posts\Create.cshtml" />
     <None Include="Views\Posts\Delete.cshtml" />
     <None Include="Views\Posts\Details.cshtml" />

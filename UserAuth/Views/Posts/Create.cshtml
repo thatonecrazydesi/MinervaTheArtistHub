@@ -3,8 +3,11 @@
 @{
     ViewData["Title"] = "Create";
     var userName = User.Identity.Name;
+    @*How to grab the userid*@
 
-    
+
+
+
 
 }
 @using Microsoft.AspNetCore.Identity
@@ -51,7 +54,7 @@
 
             <div class="form-group">
                 <input type="hidden" value="@userName" name="UserName" />
-                <input type="hidden" value="@userId" name="UserId" />
+                
                 <input type="submit" value="Create" class="btn btn-primary" />
 
             </div>

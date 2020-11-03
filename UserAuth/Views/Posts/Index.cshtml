@@ -15,58 +15,33 @@
 @if (SignInManager.IsSignedIn(User))
 {
 
-    <h1>Posts</h1>
-
     <p>
         <a class="btn btn-primary" asp-action="Create">Create New</a>
     </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.PostName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PostDescription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Content)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TimeStamp)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UserName)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PostName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PostDescription)
-                    </td>
-                    <td>
-                        @Html.Raw(item.Content)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TimeStamp)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    @item.TimeStamp
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title ">@item.PostName</h4>
+                    <p class="card-text">
+                        @{
+                            var desc = item.Content;
+
+                        }
+                        @desc.Substring(0, 10)....
+                    </p>
+                    <a asp-action="Details" asp-route-id="@item.PostId" class="btn btn-primary">Click Read More</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+  }
+

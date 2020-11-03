@@ -23,7 +23,7 @@ namespace UserAuth.Models
         public string UserName { get; set; }
         public string UserId { get; set; }
         public virtual MinervaUser MinervaUser { get; set; }
-        public IEnumerable<MinervaUser> MinervaUsers { get; set; }
+        
         public DateTime TimeStamp { get; set; }
 
         public Posts()
