@@ -57,9 +57,11 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <input name="Text" class="form-control" id="messageText" />
+                    <span><i class="fa fa-microphone" id="voiceButton" type="button" value="Give Voice Command"></i></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Send" id="submitButton" class="btn btn-outline-primary btn-block" />
+                    
                 </div>
                 <input type="hidden" value="@userName" name="username" />
                 <input type="hidden" value="@userID" name="userId" />

@@ -19,7 +19,7 @@
            
         </div>
         <div class="user-info">
-            <span class="Username"><a id="profile" class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@UserManager.GetUserName(User)</a> </span>@*Doesn't work...*@
+            <span class="Username"><a id="profile" class="nav-link text-dark" asp-area="" asp-controller="Photo" asp-action="Profile">@UserManager.GetUserName(User)</a> </span>@*Doesn't work...*@
             <span class="editprofile"><a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Edit Profile</a></span>
         </div>
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

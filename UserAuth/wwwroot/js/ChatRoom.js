@@ -62,3 +62,36 @@ function addMessageToChat(message) {
     container.appendChild(when);
     chat.appendChild(container);
 }
+
+//Speech Recognition Using Javascript
+var SpeechRecognition = new webkitSpeechRecognition;
+var SpeechGrammerList = SpeechGrammerList || webkitSpeechGrammerList;
+var grammar = '#JSGF V1.0;'
+
+
+var recognition = new SpeechRecognition();
+var speechRecognitionList = new SpeechGrammarList();
+speechRecognitionList.addFromString(grammar, 1);
+recognition.grammars = speechRecognitionList;
+recognition.lang = 'en-US';
+recognition.interimResults = true;
+
+recognition.onresult = function (event) {
+    let command = event.results[0][0].transcript;
+    let isfinal = event.results[0].isFinal;
+    textInput.value = command;
+    if (isfinal) {
+        let vmessage = new Message(username, command);
+        chat.addMessageToChat(vmessage);
+    }
+}
+
+document.querySelector('#btnvoiceButton').onclick = function () {
+    recognition.start();
+}
+recognition.onspeechend = function () {
+    recognition.stop();
+}
+recognition.onerror = function (event) {
+    txtMessage.value = 'Error occurred in recognition: ' + event.error;
+}
